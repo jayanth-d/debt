@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="amount"></h1>
+</body>
+<script>
+    const on_day = new Date('2024-10-07T14:30:00'); // ISO format: YYYY-MM-DDTHH:MM:SS
+    
+    function updateTime() {
+        let today = new Date();
+        let today_sec = today.getTime();
+        let old_sec = on_day.getTime();
+        
+        // Update the HTML element every second
+        document.querySelector('#amount').innerHTML = "Rupees : "+Math.round(((today_sec - old_sec) / 1000))*50+ " /-";
+    }
+    
+    // Call updateTime every 1000 milliseconds (1 second)
+    setInterval(updateTime, 1000);
+    </script>
+    
+</html>
